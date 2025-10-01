@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - EV Charge Hub</title>
+    <script src="JS/theme-loader.js"></script>
+    <link rel="stylesheet" href="CSS/staffPage.css">
+    <link rel="stylesheet" href="CSS/settingPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-charging-station"></i>
+                <span data-i18n="app-name">EV Hub</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="sidebar-user-info">
+                <h3>Nguyễn Văn An</h3>
+                <p data-i18n="staff-role">Nhân viên vận hành</p>
+            </div>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li class="sidebar-menu-item">
+                <a href="StaffPage.html" class="sidebar-menu-link" data-section="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span data-i18n="menu-dashboard">Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="PaymentHistory.html" class="sidebar-menu-link" data-section="payment">
+                    <i class="fas fa-credit-card"></i>
+                    <span data-i18n="menu-payment">Payment History</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="charging">
+                    <i class="fas fa-bolt"></i>
+                    <span data-i18n="menu-charging">Charging History</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span data-i18n="menu-error">Error Report</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="SettingPage.html" class="sidebar-menu-link active" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span data-i18n="menu-settings">Settings</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="sidebar-divider"></div>
+        
+        <div class="sidebar-logout">
+            <button class="sidebar-logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span data-i18n="logout">Logout</span>
+            </button>
+        </div>
+    </aside>
+    
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <header class="header">
+        <div class="header-content">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <i class="fas fa-charging-station"></i>
+                <span data-i18n="app-name">EV Charge Hub</span>
+            </div>
+            <div class="station-info">
+                <div class="station-name" id="stationName">Trạm sạc Vincom Center</div>
+                <div class="station-location" id="stationLocation">72 Lê Thánh Tôn, Q1, TP.HCM</div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">
+                    <i class="fas fa-user-circle"></i>
+                    <div class="staff-info-dropdown" id="staffInfoDropdown">
+                        <div class="staff-info-header">
+                            <div class="staff-avatar-large">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="staff-name-role">
+                                <h3>Nguyễn Văn An</h3>
+                                <p data-i18n="staff-role">Nhân viên vận hành</p>
+                            </div>
+                        </div>
+                        <div class="staff-info-details">
+                            <div class="staff-detail-row">
+                                <i class="fas fa-id-badge"></i>
+                                <span>Mã NV: NV001</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-envelope"></i>
+                                <span>nguyenvanan@evchargehub.com</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-phone"></i>
+                                <span>0901234567</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-clock"></i>
+                                <span>Ca sáng (07:00 - 15:00)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="settings-section">
+            <div class="section-header">
+                <h2 data-i18n="settings-title">Cài đặt</h2>
+            </div>
+
+            <div class="settings-card">
+                <div class="settings-card-header">
+                    <div class="settings-card-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="settings-card-title">
+                        <h3 data-i18n="appearance-title">Giao diện</h3>
+                        <p data-i18n="appearance-desc">Tùy chỉnh giao diện ứng dụng</p>
+                    </div>
+                </div>
+                <div class="settings-card-body">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label data-i18n="theme-label">Chủ đề</label>
+                            <span class="setting-description" data-i18n="theme-desc">Chọn chế độ sáng hoặc tối</span>
+                        </div>
+                        <div class="theme-toggle-container">
+                            <div class="theme-toggle" id="themeToggle">
+                                <div class="theme-toggle-slider">
+                                    <i class="fas fa-sun"></i>
+                                    <i class="fas fa-moon"></i>
+                                </div>
+                            </div>
+                            <span class="theme-label" id="themeLabel" data-i18n="dark-mode">Dark Mode</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <div class="settings-card-header">
+                    <div class="settings-card-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="settings-card-title">
+                        <h3 data-i18n="language-title">Ngôn ngữ</h3>
+                        <p data-i18n="language-desc">Thay đổi ngôn ngữ hiển thị</p>
+                    </div>
+                </div>
+                <div class="settings-card-body">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label data-i18n="select-language">Chọn ngôn ngữ</label>
+                            <span class="setting-description" data-i18n="language-change-desc">Thay đổi ngôn ngữ giao diện</span>
+                        </div>
+                        <div class="language-selector">
+                            <button class="language-btn active" data-lang="vi">
+                                <i class="fas fa-flag"></i>
+                                <span>Tiếng Việt</span>
+                            </button>
+                            <button class="language-btn" data-lang="en">
+                                <i class="fas fa-flag-usa"></i>
+                                <span>English</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <div class="settings-card-header">
+                    <div class="settings-card-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="settings-card-title">
+                        <h3 data-i18n="notification-title">Thông báo</h3>
+                        <p data-i18n="notification-desc">Quản lý thông báo</p>
+                    </div>
+                </div>
+                <div class="settings-card-body">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label data-i18n="alert-notification">Cảnh báo hệ thống</label>
+                            <span class="setting-description" data-i18n="alert-notification-desc">Nhận thông báo khi có lỗi hoặc cảnh báo</span>
+                        </div>
+                        <div class="toggle-switch active" id="alertToggle"></div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label data-i18n="charge-complete">Hoàn thành sạc</label>
+                            <span class="setting-description" data-i18n="charge-complete-desc">Thông báo khi quá trình sạc hoàn tất</span>
+                        </div>
+                        <div class="toggle-switch active" id="chargeCompleteToggle"></div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label data-i18n="sound-notification">Âm thanh thông báo</label>
+                            <span class="setting-description" data-i18n="sound-notification-desc">Phát âm thanh khi có thông báo mới</span>
+                        </div>
+                        <div class="toggle-switch" id="soundToggle"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <div class="settings-card-header">
+                    <div class="settings-card-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <div class="settings-card-title">
+                        <h3 data-i18n="account-title">Tài khoản</h3>
+                        <p data-i18n="account-desc">Quản lý thông tin tài khoản</p>
+                    </div>
+                </div>
+                <div class="settings-card-body">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label data-i18n="change-password">Đổi mật khẩu</label>
+                            <span class="setting-description" data-i18n="change-password-desc">Cập nhật mật khẩu của bạn</span>
+                        </div>
+                        <button class="setting-action-btn" id="changePasswordBtn">
+                            <i class="fas fa-key"></i>
+                            <span data-i18n="change">Thay đổi</span>
+                        </button>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <label data-i18n="update-profile">Cập nhật thông tin</label>
+                            <span class="setting-description" data-i18n="update-profile-desc">Chỉnh sửa thông tin cá nhân</span>
+                        </div>
+                        <button class="setting-action-btn" id="updateProfileBtn">
+                            <i class="fas fa-edit"></i>
+                            <span data-i18n="update">Cập nhật</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <div class="settings-card-header">
+                    <div class="settings-card-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="settings-card-title">
+                        <h3 data-i18n="about-title">Về ứng dụng</h3>
+                        <p data-i18n="about-desc">Thông tin phiên bản</p>
+                    </div>
+                </div>
+                <div class="settings-card-body">
+                    <div class="about-info">
+                        <div class="about-row">
+                            <span data-i18n="version">Phiên bản</span>
+                            <strong>1.0.0</strong>
+                        </div>
+                        <div class="about-row">
+                            <span data-i18n="last-update">Cập nhật lần cuối</span>
+                            <strong>01/10/2025</strong>
+                        </div>
+                        <div class="about-row">
+                            <span data-i18n="developer">Nhà phát triển</span>
+                            <strong>EV Charge Hub Team</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/settingPage.js"></script>
+</body>
+</html>

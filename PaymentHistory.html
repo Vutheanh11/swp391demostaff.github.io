@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment History - EV Charge Hub</title>
-    <link rel="stylesheet" href="CSS/staffPage.css"> 
-    <link rel="stylesheet" href="CSS/PaymentHistory.css"> 
+    <script src="JS/theme-loader.js"></script>
+    <link rel="stylesheet" href="CSS/staffPage.css">
+    <link rel="stylesheet" href="CSS/PaymentHistory.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="sidebar-logo">
@@ -57,7 +57,7 @@
                 </a>
             </li>
             <li class="sidebar-menu-item">
-                <a href="#" class="sidebar-menu-link" data-section="settings">
+                <a href="SettingPage.html" class="sidebar-menu-link" data-section="settings">
                     <i class="fas fa-cog"></i>
                     <span>Settings</span>
                 </a>
@@ -73,7 +73,7 @@
             </button>
         </div>
     </aside>
-
+    
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <header class="header">
@@ -86,25 +86,39 @@
                 <span>EV Charge Hub</span>
             </div>
             <div class="station-info">
-                <div class="station-name">Lịch sử Thanh toán</div>
-                <div class="station-location">Trạm sạc Vincom Center</div>
+                <div class="station-name" id="stationName">Trạm sạc Vincom Center</div>
+                <div class="station-location" id="stationLocation">72 Lê Thánh Tôn, Q1, TP.HCM</div>
             </div>
             <div class="user-info">
                 <div class="user-avatar" id="userAvatar">
                     <i class="fas fa-user-circle"></i>
                     <div class="staff-info-dropdown" id="staffInfoDropdown">
                         <div class="staff-info-header">
-                            <div class="staff-avatar-large"><i class="fas fa-user"></i></div>
+                            <div class="staff-avatar-large">
+                                <i class="fas fa-user"></i>
+                            </div>
                             <div class="staff-name-role">
                                 <h3>Nguyễn Văn An</h3>
                                 <p>Nhân viên vận hành</p>
                             </div>
                         </div>
                         <div class="staff-info-details">
-                            <div class="staff-detail-row"><i class="fas fa-id-badge"></i><span>Mã NV: NV001</span></div>
-                            <div class="staff-detail-row"><i class="fas fa-envelope"></i><span>nguyenvanan@evchargehub.com</span></div>
-                            <div class="staff-detail-row"><i class="fas fa-phone"></i><span>0901234567</span></div>
-                            <div class="staff-detail-row"><i class="fas fa-clock"></i><span>Ca sáng (07:00 - 15:00)</span></div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-id-badge"></i>
+                                <span>Mã NV: NV001</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-envelope"></i>
+                                <span>nguyenvanan@evchargehub.com</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-phone"></i>
+                                <span>0901234567</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-clock"></i>
+                                <span>Ca sáng (07:00 - 15:00)</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -113,98 +127,138 @@
     </header>
 
     <div class="main-container">
-        <section class="payment-history-section">
-            <div class="payment-filters">
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon charging">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Tổng doanh thu hôm nay</h3>
+                    <p class="stat-number" id="todayRevenue">2,450,000 ₫</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon active">
+                    <i class="fas fa-receipt"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Giao dịch hôm nay</h3>
+                    <p class="stat-number" id="todayTransactions">24</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon pending">
+                    <i class="fas fa-hourglass-half"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Đang chờ xử lý</h3>
+                    <p class="stat-number" id="pendingPayments">3</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon error">
+                    <i class="fas fa-times-circle"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Giao dịch thất bại</h3>
+                    <p class="stat-number" id="failedPayments">1</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ports-section">
+            <div class="section-header">
+                <h2>Lọc giao dịch</h2>
+            </div>
+            <div class="filter-container">
                 <div class="filter-group">
-                    <i class="fas fa-search"></i>
-                    <input type="text" class="filter-input search-input" placeholder="Tìm theo ID giao dịch, Tên KH...">
+                    <label for="dateFrom">Từ ngày</label>
+                    <input type="date" id="dateFrom" class="filter-input">
                 </div>
                 <div class="filter-group">
-                    <i class="fas fa-calendar-alt"></i>
-                    <input type="date" class="filter-input">
+                    <label for="dateTo">Đến ngày</label>
+                    <input type="date" id="dateTo" class="filter-input">
                 </div>
                 <div class="filter-group">
-                    <i class="fas fa-filter"></i>
-                    <select class="filter-select">
-                        <option value="">Tất cả trạng thái</option>
+                    <label for="statusFilter">Trạng thái</label>
+                    <select id="statusFilter" class="filter-input">
+                        <option value="all">Tất cả</option>
                         <option value="completed">Hoàn thành</option>
                         <option value="pending">Đang chờ</option>
                         <option value="failed">Thất bại</option>
                     </select>
                 </div>
-                <button class="filter-btn">
-                    <i class="fas fa-sliders-h"></i>
-                    <span>Lọc</span>
+                <div class="filter-group">
+                    <label for="searchInput">Tìm kiếm</label>
+                    <input type="text" id="searchInput" class="filter-input" placeholder="Mã GD, cổng, SĐT...">
+                </div>
+                <button class="filter-btn" id="applyFilter">
+                    <i class="fas fa-search"></i> Tìm kiếm
+                </button>
+                <button class="filter-btn reset" id="resetFilter">
+                    <i class="fas fa-redo"></i> Đặt lại
                 </button>
             </div>
+        </div>
 
+        <div class="ports-section">
+            <div class="section-header">
+                <h2>Lịch sử thanh toán</h2>
+                <button class="export-btn" id="exportBtn">
+                    <i class="fas fa-download"></i> Xuất Excel
+                </button>
+            </div>
             <div class="table-container">
-                <table class="payment-table">
+                <table class="payment-table" id="paymentTable">
                     <thead>
                         <tr>
-                            <th>ID Giao dịch</th>
-                            <th>Khách hàng</th>
-                            <th>Ngày</th>
-                            <th>Số tiền</th>
-                            <th>Trạng thái</th>
+                            <th>Mã GD</th>
+                            <th>Thời gian</th>
                             <th>Cổng sạc</th>
-                            <th>Hành động</th>
+                            <th>Khách hàng</th>
+                            <th>Số điện thoại</th>
+                            <th>Điện năng (kWh)</th>
+                            <th>Thời lượng</th>
+                            <th>Số tiền</th>
+                            <th>Phương thức</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>TXN123456789</td>
-                            <td>Trần Thị B</td>
-                            <td>2025-10-01 09:30</td>
-                            <td>150,000đ</td>
-                            <td><span class="status-badge status-completed">Hoàn thành</span></td>
-                            <td>Cổng 01</td>
-                            <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td>TXN123456790</td>
-                            <td>Lê Văn C</td>
-                            <td>2025-10-01 08:45</td>
-                            <td>50,000đ</td>
-                            <td><span class="status-badge status-failed">Thất bại</span></td>
-                            <td>Cổng 03</td>
-                            <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td>TXN123456791</td>
-                            <td>Phạm Hùng D</td>
-                            <td>2025-09-30 21:15</td>
-                            <td>250,000đ</td>
-                            <td><span class="status-badge status-completed">Hoàn thành</span></td>
-                            <td>Cổng 02</td>
-                            <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td>TXN123456792</td>
-                            <td>Vũ Thị E</td>
-                            <td>2025-09-30 18:00</td>
-                            <td>75,000đ</td>
-                            <td><span class="status-badge status-pending">Đang chờ</span></td>
-                            <td>Cổng 04</td>
-                            <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
-                        </tr>
-                         </tbody>
+                    <tbody id="paymentTableBody">
+                        </tbody>
                 </table>
             </div>
-
-            <div class="pagination">
-                <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
-                <button class="page-btn active">1</button>
-                <button class="page-btn">2</button>
-                <button class="page-btn">3</button>
-                <span>...</span>
-                <button class="page-btn">10</button>
-                <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+            <div class="pagination" id="pagination">
+                <button class="pagination-btn" id="prevPage">
+                    <i class="fas fa-chevron-left"></i> Trước
+                </button>
+                <div class="pagination-info">
+                    Trang <span id="currentPage">1</span> / <span id="totalPages">5</span>
+                </div>
+                <button class="pagination-btn" id="nextPage">
+                    Sau <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
-        </section>
+        </div>
+    </div>
+
+    <div class="modal" id="detailModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2 id="modalTitle">Chi tiết giao dịch</h2>
+                <button class="close-btn" id="closeDetailModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="payment-detail" id="paymentDetail">
+                </div>
+        </div>
     </div>
 
     <script src="JS/PaymentHistory.js"></script>
-
 </body>
 </html>

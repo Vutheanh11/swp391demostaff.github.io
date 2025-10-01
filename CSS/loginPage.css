@@ -1,3 +1,4 @@
+/* CSS/loginPage.css */
 /* From Uiverse.io by lenfear23 - extended for the full page */
 
 /* General Body Styles */
@@ -10,6 +11,7 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(161, 161, 161);
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Login Container */
@@ -255,4 +257,99 @@ button:hover {
     .social-login {
         gap: 12px;
     }
+}
+
+/* ------------------- */
+/* ---  LIGHT MODE --- */
+/* ------------------- */
+.light-mode body {
+    background: #e0e5ec;
+    color: #555;
+}
+
+.light-mode .login-container {
+    background: #e0e5ec;
+    box-shadow: -10px -10px 20px #ffffff, 10px 10px 20px #a3b1c6;
+}
+
+.light-mode h1 {
+    color: #333;
+    text-shadow: 1px 1px 2px #a3b1c6;
+}
+
+.light-mode label {
+    color: #777;
+}
+
+.light-mode input[type="email"]:focus + label,
+.light-mode input[type="password"]:focus + label,
+.light-mode input[type="email"]:not(:placeholder-shown) + label,
+.light-mode input[type="password"]:not(:placeholder-shown) + label {
+    color: #333;
+}
+
+.light-mode input[type="email"],
+.light-mode input[type="password"] {
+    background: #e0e5ec;
+    box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
+    color: #555;
+}
+
+.light-mode input[type="email"]:focus,
+.light-mode input[type="password"]:focus {
+    color: #333;
+}
+
+.light-mode .error-message {
+    color: #d94848;
+    text-shadow: none;
+}
+
+.light-mode .demo-accounts {
+    background: #dde2e9;
+    box-shadow: inset 3px 3px 6px #a3b1c6, inset -3px -3px 6px #ffffff;
+}
+
+.light-mode .demo-accounts p {
+    color: #333;
+}
+
+.light-mode .demo-accounts small {
+    color: #777;
+}
+
+.light-mode button {
+    background: #e0e5ec;
+    box-shadow: -5px -5px 15px #ffffff, 5px 5px 15px #a3b1c6, inset 5px 5px 10px #ffffff,
+        inset -5px -5px 10px #a3b1c6;
+    color: #555;
+}
+
+.light-mode button:hover {
+    box-shadow: -5px -5px 15px #ffffff, 5px 5px 15px #a3b1c6, inset 5px 5px 10px #a3b1c6,
+        inset -5px -5px 10px #ffffff;
+    color: #333;
+}
+
+.light-mode .divider {
+    color: #777;
+}
+
+.light-mode .divider::before,
+.light-mode .divider::after {
+    border-bottom: 1px solid #a3b1c6;
+}
+
+.light-mode .social-btn {
+    box-shadow: -5px -5px 15px #ffffff, 5px 5px 15px #a3b1c6;
+}
+
+.light-mode .google-btn:hover,
+.light-mode .github-btn:hover,
+.light-mode .facebook-btn:hover {
+    box-shadow: -3px -3px 10px #ffffff, 3px 3px 10px #a3b1c6;
+}
+
+.light-mode .social-btn:active {
+    box-shadow: inset 3px 3px 8px #a3b1c6, inset -3px -3px 8px #ffffff;
 }
