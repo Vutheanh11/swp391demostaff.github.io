@@ -1,0 +1,258 @@
+/* From Uiverse.io by lenfear23 - extended for the full page */
+
+/* General Body Styles */
+body {
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(161, 161, 161);
+}
+
+/* Login Container */
+.login-container {
+    background: #333;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: -10px -10px 20px #444, 10px 10px 20px #222;
+    width: 320px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px #222;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+label {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #888;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Label animation when input is focused or has value */
+input[type="email"]:focus + label,
+input[type="password"]:focus + label,
+input[type="email"]:not(:placeholder-shown) + label,
+input[type="password"]:not(:placeholder-shown) + label {
+    top: -22px;
+    left: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #d6d6d6;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #333;
+    box-sizing: border-box;
+    box-shadow: inset 5px 5px 10px #222, inset -5px -5px 10px #444;
+    color: #d6d6d6;
+    font-size: 16px;
+    outline: none;
+    transition: 300ms;
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    opacity: 0;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    color: #fff;
+}
+
+/* Error Message */
+.error-message {
+    color: #ff6b6b;
+    font-size: 14px;
+    text-align: center;
+    margin: 10px 0;
+    min-height: 20px;
+    text-shadow: 1px 1px 2px #222;
+}
+
+/* Demo Accounts Info */
+.demo-accounts {
+    margin-top: 20px;
+    padding: 15px;
+    background: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: inset 3px 3px 6px #222, inset -3px -3px 6px #3a3a3a;
+    text-align: center;
+}
+
+.demo-accounts p {
+    margin: 0 0 8px 0;
+    font-weight: bold;
+    color: #d6d6d6;
+    font-size: 14px;
+}
+
+.demo-accounts small {
+    color: #888;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* Button Styles (Original) */
+button {
+    margin: 12px 5px 0 5px;
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    background: #333;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444,
+        inset -5px -5px 10px #222;
+    font-family: "Damion", cursive;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    color: rgb(161, 161, 161);
+    transition: 500ms;
+}
+
+button:hover {
+    box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222,
+        inset -5px -5px 10px #444;
+    color: #d6d6d6;
+    transition: 500ms;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 30px 0 20px 0;
+    color: #888;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #444;
+}
+
+.divider span {
+    padding: 0 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Social Login Buttons */
+.social-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: -5px -5px 15px #444, 5px 5px 15px #222;
+}
+
+.social-btn i {
+    font-size: 20px;
+}
+
+/* Google Button */
+.google-btn {
+    background: linear-gradient(145deg, #4285f4, #357ae8);
+    color: #fff;
+}
+
+.google-btn:hover {
+    background: linear-gradient(145deg, #357ae8, #2a63c4);
+    box-shadow: -3px -3px 10px #444, 3px 3px 10px #222;
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* GitHub Button */
+.github-btn {
+    background: linear-gradient(145deg, #24292e, #1a1e22);
+    color: #fff;
+}
+
+.github-btn:hover {
+    background: linear-gradient(145deg, #1a1e22, #0d1117);
+    box-shadow: -3px -3px 10px #444, 3px 3px 10px #222;
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Facebook Button */
+.facebook-btn {
+    background: linear-gradient(145deg, #1877f2, #145dbf);
+    color: #fff;
+}
+
+.facebook-btn:hover {
+    background: linear-gradient(145deg, #145dbf, #0f4a9c);
+    box-shadow: -3px -3px 10px #444, 3px 3px 10px #222;
+    transform: translateY(-2px) scale(1.05);
+}
+
+.social-btn:active {
+    transform: translateY(0) scale(1);
+    box-shadow: inset 3px 3px 8px #222, inset -3px -3px 8px #444;
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 30px 20px;
+    }
+
+    .login-container h1 {
+        font-size: 28px;
+    }
+
+    .social-btn {
+        width: 45px;
+        height: 45px;
+    }
+
+    .social-btn i {
+        font-size: 18px;
+    }
+
+    .social-login {
+        gap: 12px;
+    }
+}

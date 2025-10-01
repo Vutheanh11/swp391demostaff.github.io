@@ -1,0 +1,236 @@
+<!-- StaffPage.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - EV Charge Hub</title>
+    <link rel="stylesheet" href="CSS/staffPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-charging-station"></i>
+                <span>EV Hub</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="sidebar-user-info">
+                <h3>Nguyễn Văn An</h3>
+                <p>Nhân viên vận hành</p>
+            </div>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link active" data-section="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="PaymentHistory.html" class="sidebar-menu-link" data-section="payment">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payment History</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="charging">
+                    <i class="fas fa-bolt"></i>
+                    <span>Charging History</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Error Report</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="sidebar-divider"></div>
+        
+        <div class="sidebar-logout">
+            <button class="sidebar-logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </aside>
+    
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <header class="header">
+        <div class="header-content">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <i class="fas fa-charging-station"></i>
+                <span>EV Charge Hub</span>
+            </div>
+            <div class="station-info">
+                <div class="station-name" id="stationName">Trạm sạc Vincom Center</div>
+                <div class="station-location" id="stationLocation">72 Lê Thánh Tôn, Q1, TP.HCM</div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">
+                    <i class="fas fa-user-circle"></i>
+                    <div class="staff-info-dropdown" id="staffInfoDropdown">
+                        <div class="staff-info-header">
+                            <div class="staff-avatar-large">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="staff-name-role">
+                                <h3>Nguyễn Văn An</h3>
+                                <p>Nhân viên vận hành</p>
+                            </div>
+                        </div>
+                        <div class="staff-info-details">
+                            <div class="staff-detail-row">
+                                <i class="fas fa-id-badge"></i>
+                                <span>Mã NV: NV001</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-envelope"></i>
+                                <span>nguyenvanan@evchargehub.com</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-phone"></i>
+                                <span>0901234567</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-clock"></i>
+                                <span>Ca sáng (07:00 - 15:00)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon charging">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Đang sạc</h3>
+                    <p class="stat-number" id="chargingPorts">2</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon active">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Sẵn sàng</h3>
+                    <p class="stat-number" id="availablePorts">1</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Lỗi</h3>
+                    <p class="stat-number" id="errorPorts">1</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon idle">
+                    <i class="fas fa-pause-circle"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Chờ</h3>
+                    <p class="stat-number" id="idlePorts">1</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ports-section">
+            <div class="section-header">
+                <h2>Giám sát cổng sạc</h2>
+            </div>
+            <div class="ports-grid" id="portsGrid">
+            </div>
+        </div>
+
+        <div class="alerts-section">
+            <div class="section-header">
+                <h2>Lịch sử cảnh báo</h2>
+            </div>
+            <div class="alerts-list" id="alertsList">
+            </div>
+        </div>
+
+        <div class="test-section">
+            <div class="section-header">
+                <h2>Giả lập Sự cố (Test)</h2>
+            </div>
+            
+            <!-- Real-time Simulator Controls -->
+            <div class="simulator-controls">
+                <div class="simulator-info">
+                    <h3>Real-time Simulator</h3>
+                    <p>Tự động giả lập các sự cố ngẫu nhiên mỗi 5-10 giây</p>
+                </div>
+                <div class="simulator-toggle">
+                    <span class="simulator-status inactive" id="simulatorStatus">Đã tắt</span>
+                    <div class="toggle-switch" id="simulatorToggle"></div>
+                </div>
+            </div>
+            
+            <div class="test-buttons-grid">
+                <button class="test-btn" id="testOverheat"><i class="fas fa-fire-alt"></i> Test Quá Nhiệt</button>
+                <button class="test-btn" id="testComponentFailure"><i class="fas fa-microchip"></i> Test Hỏng Linh Kiện</button>
+                <button class="test-btn" id="testSlowCharge"><i class="fas fa-tachometer-alt"></i> Test Sạc Chậm</button>
+                <button class="test-btn" id="testConnectionLoss"><i class="fas fa-unlink"></i> Test Mất Kết Nối</button>
+                <button class="test-btn" id="testChargeComplete"><i class="fas fa-check-double"></i> Test Sạc Hoàn Tất</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="actionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Xác nhận</h2>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p class="modal-message" id="modalMessage">Bạn có chắc chắn muốn thực hiện thao tác này?</p>
+            <div class="modal-actions">
+                <button class="modal-btn confirm" id="confirmAction">
+                    <i class="fas fa-check"></i> Xác nhận
+                </button>
+                <button class="modal-btn cancel" id="cancelAction">
+                    <i class="fas fa-times"></i> Hủy
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/staffPage.js"></script>
+</body>
+</html>
