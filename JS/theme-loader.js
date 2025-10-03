@@ -6,4 +6,4 @@
         // Điều này cho phép theme được áp dụng trước khi body được render
         document.documentElement.classList.add('light-mode');
     }
-})();
+})();

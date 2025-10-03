@@ -66,4 +66,4 @@ emailInput.addEventListener('input', () => {
 
 passwordInput.addEventListener('input', () => {
     errorMessage.textContent = '';
-});
+});

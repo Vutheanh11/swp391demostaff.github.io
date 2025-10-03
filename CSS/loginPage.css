@@ -1,5 +1,4 @@
-/* CSS/loginPage.css */
-/* From Uiverse.io by lenfear23 - extended for the full page */
+/* From Uiverse.io by lenfear23 - extended for the full page */ 
 
 /* General Body Styles */
 body {
@@ -31,47 +30,50 @@ h1 {
     text-shadow: 2px 2px 4px #222;
 }
 
-/* Form Styling */
+/* Form Styling - NEW STYLE */
 .form-group {
-    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
     position: relative;
+    color: white;
+    margin-bottom: 30px;
 }
 
 label {
+    font-size: 15px;
+    padding-left: 10px;
     position: absolute;
-    left: 12px;
-    top: 12px;
-    font-size: 16px;
-    font-weight: normal;
-    color: #888;
+    top: 13px;
+    transition: 0.3s;
     pointer-events: none;
-    transition: all 0.3s ease;
+    color: #fff;
 }
 
 /* Label animation when input is focused or has value */
 input[type="email"]:focus + label,
 input[type="password"]:focus + label,
-input[type="email"]:not(:placeholder-shown) + label,
-input[type="password"]:not(:placeholder-shown) + label {
-    top: -22px;
-    left: 0;
-    font-size: 14px;
-    font-weight: bold;
-    color: #d6d6d6;
+input[type="email"]:valid + label,
+input[type="password"]:valid + label {
+    transition: 0.3s;
+    padding-left: 2px;
+    transform: translateY(-35px);
 }
 
 input[type="email"],
 input[type="password"] {
     width: 100%;
-    padding: 12px;
+    height: 45px;
     border: none;
-    border-radius: 10px;
-    background: #333;
-    box-sizing: border-box;
-    box-shadow: inset 5px 5px 10px #222, inset -5px -5px 10px #444;
-    color: #d6d6d6;
-    font-size: 16px;
     outline: none;
+    padding: 0px 7px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 15px;
+    background-color: transparent;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 10px rgba(0,0,0,1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4);
     transition: 300ms;
 }
 
@@ -82,7 +84,20 @@ input[type="password"]::placeholder {
 
 input[type="email"]:focus,
 input[type="password"]:focus {
+    border: 2px solid transparent;
     color: #fff;
+    box-shadow: 3px 3px 10px rgba(0,0,0,1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4),
+        inset 3px 3px 10px rgba(0,0,0,1),
+        inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+input[type="email"]:valid,
+input[type="password"]:valid {
+    box-shadow: 3px 3px 10px rgba(0,0,0,1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4),
+        inset 3px 3px 10px rgba(0,0,0,1),
+        inset -1px -1px 6px rgba(255, 255, 255, 0.4);
 }
 
 /* Error Message */
@@ -283,21 +298,28 @@ button:hover {
 
 .light-mode input[type="email"]:focus + label,
 .light-mode input[type="password"]:focus + label,
-.light-mode input[type="email"]:not(:placeholder-shown) + label,
-.light-mode input[type="password"]:not(:placeholder-shown) + label {
+.light-mode input[type="email"]:valid + label,
+.light-mode input[type="password"]:valid + label {
     color: #333;
 }
 
 .light-mode input[type="email"],
 .light-mode input[type="password"] {
-    background: #e0e5ec;
-    box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
+    background-color: transparent;
+    box-shadow: 3px 3px 10px rgba(163, 177, 198, 0.6),
+        -1px -1px 6px rgba(255, 255, 255, 0.8);
     color: #555;
 }
 
 .light-mode input[type="email"]:focus,
-.light-mode input[type="password"]:focus {
+.light-mode input[type="password"]:focus,
+.light-mode input[type="email"]:valid,
+.light-mode input[type="password"]:valid {
     color: #333;
+    box-shadow: 3px 3px 10px rgba(163, 177, 198, 0.6),
+        -1px -1px 6px rgba(255, 255, 255, 0.8),
+        inset 3px 3px 10px rgba(163, 177, 198, 0.4),
+        inset -1px -1px 6px rgba(255, 255, 255, 0.6);
 }
 
 .light-mode .error-message {

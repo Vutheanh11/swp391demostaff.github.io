@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Analytics - EV Charge Hub</title>
+    <script src="JS/theme-loader.js"></script>
+    <link rel="stylesheet" href="CSS/staffPage.css">
+    <link rel="stylesheet" href="CSS/ReportAndAnalysis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-charging-station"></i>
+                <span>EV Hub</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="sidebar-user-info">
+                <h3>Nguyễn Văn An</h3>
+                <p>Nhân viên vận hành</p>
+            </div>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li class="sidebar-menu-item">
+                <a href="StaffPage.html" class="sidebar-menu-link" data-section="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="PaymentHistory.html" class="sidebar-menu-link" data-section="payment">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payment History</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="ChargeHistory.html" class="sidebar-menu-link" data-section="charging">
+                    <i class="fas fa-bolt"></i>
+                    <span>Charging History</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="ReportAndAnalysis.html" class="sidebar-menu-link active" data-section="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports & Analytics</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="maintenance">
+                    <i class="fas fa-tools"></i>
+                    <span>Station Maintenance</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Error Report</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span>
+                    <span class="notification-badge">3</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="help">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help & Support</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="SettingPage.html" class="sidebar-menu-link" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="sidebar-divider"></div>
+        
+        <div class="sidebar-logout">
+            <button class="sidebar-logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </aside>
+    
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <header class="header">
+        <div class="header-content">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <i class="fas fa-charging-station"></i>
+                <span>EV Charge Hub</span>
+            </div>
+            <div class="station-info">
+                <div class="station-name" id="stationName">Trạm sạc Vincom Center</div>
+                <div class="station-location" id="stationLocation">72 Lê Thánh Tôn, Q1, TP.HCM</div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">
+                    <i class="fas fa-user-circle"></i>
+                    <div class="staff-info-dropdown" id="staffInfoDropdown">
+                        <div class="staff-info-header">
+                            <div class="staff-avatar-large">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="staff-name-role">
+                                <h3>Nguyễn Văn An</h3>
+                                <p>Nhân viên vận hành</p>
+                            </div>
+                        </div>
+                        <div class="staff-info-details">
+                            <div class="staff-detail-row">
+                                <i class="fas fa-id-badge"></i>
+                                <span>Mã NV: NV001</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-envelope"></i>
+                                <span>nguyenvanan@evchargehub.com</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-phone"></i>
+                                <span>0901234567</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-clock"></i>
+                                <span>Ca sáng (07:00 - 15:00)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <div class="section-header">
+                <h2>Báo cáo & Phân tích</h2>
+            </div>
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="timeRange">Khoảng thời gian</label>
+                    <select id="timeRange" class="filter-select">
+                        <option value="today">Hôm nay</option>
+                        <option value="week" selected>Tuần này</option>
+                        <option value="month">Tháng này</option>
+                        <option value="quarter">Quý này</option>
+                        <option value="year">Năm nay</option>
+                        <option value="custom">Tùy chỉnh</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="reportType">Loại báo cáo</label>
+                    <select id="reportType" class="filter-select">
+                        <option value="all" selected>Tất cả</option>
+                        <option value="revenue">Doanh thu</option>
+                        <option value="usage">Sử dụng</option>
+                        <option value="performance">Hiệu suất</option>
+                    </select>
+                </div>
+                <button class="export-btn" id="exportBtn">
+                    <i class="fas fa-download"></i>
+                    Xuất báo cáo
+                </button>
+            </div>
+        </div>
+
+        <!-- Overview Stats -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon revenue">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Tổng doanh thu</h3>
+                    <p class="stat-number">45.2M VNĐ</p>
+                    <span class="stat-change positive">+12.5%</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon sessions">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Lượt sạc</h3>
+                    <p class="stat-number">1,247</p>
+                    <span class="stat-change positive">+8.3%</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon energy">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Điện tiêu thụ</h3>
+                    <p class="stat-number">8,456 kWh</p>
+                    <span class="stat-change positive">+15.2%</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon uptime">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Thời gian hoạt động</h3>
+                    <p class="stat-number">98.5%</p>
+                    <span class="stat-change negative">-0.3%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-row">
+            <div class="chart-container large">
+                <div class="chart-header">
+                    <h3>Doanh thu theo ngày</h3>
+                    <div class="chart-controls">
+                        <button class="chart-btn active">7 ngày</button>
+                        <button class="chart-btn">30 ngày</button>
+                        <button class="chart-btn">90 ngày</button>
+                    </div>
+                </div>
+                <div class="chart-content">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>Sử dụng theo giờ</h3>
+                </div>
+                <div class="chart-content">
+                    <canvas id="usageChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>Trạng thái cổng sạc</h3>
+                </div>
+                <div class="chart-content">
+                    <canvas id="statusChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Metrics -->
+        <div class="metrics-section">
+            <div class="section-header">
+                <h2>Chỉ số hiệu suất</h2>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h4>Tốc độ sạc trung bình</h4>
+                    </div>
+                    <div class="metric-value">42.5 kW</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 85%"></div>
+                    </div>
+                    <span class="metric-label">85% hiệu suất tối đa</span>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <i class="fas fa-users"></i>
+                        <h4>Khách hàng duy nhất</h4>
+                    </div>
+                    <div class="metric-value">892</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill success" style="width: 78%"></div>
+                    </div>
+                    <span class="metric-label">+124 so với tuần trước</span>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <i class="fas fa-hourglass-half"></i>
+                        <h4>Thời gian sạc TB</h4>
+                    </div>
+                    <div class="metric-value">42 phút</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill warning" style="width: 65%"></div>
+                    </div>
+                    <span class="metric-label">Trong khoảng bình thường</span>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <i class="fas fa-star"></i>
+                        <h4>Đánh giá trung bình</h4>
+                    </div>
+                    <div class="metric-value">4.7/5.0</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill success" style="width: 94%"></div>
+                    </div>
+                    <span class="metric-label">Từ 456 đánh giá</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Ports Performance -->
+        <div class="ports-performance-section">
+            <div class="section-header">
+                <h2>Hiệu suất cổng sạc</h2>
+            </div>
+            <div class="performance-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cổng</th>
+                            <th>Lượt sạc</th>
+                            <th>Doanh thu</th>
+                            <th>Điện năng</th>
+                            <th>Uptime</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="performanceTableBody">
+                        <tr>
+                            <td><strong>Port 1</strong></td>
+                            <td>342</td>
+                            <td>12.8M VNĐ</td>
+                            <td>2,340 kWh</td>
+                            <td><span class="uptime-badge excellent">99.2%</span></td>
+                            <td><span class="status-badge charging">Đang sạc</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Port 2</strong></td>
+                            <td>318</td>
+                            <td>11.5M VNĐ</td>
+                            <td>2,180 kWh</td>
+                            <td><span class="uptime-badge good">97.8%</span></td>
+                            <td><span class="status-badge available">Sẵn sàng</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Port 3</strong></td>
+                            <td>295</td>
+                            <td>10.9M VNĐ</td>
+                            <td>2,020 kWh</td>
+                            <td><span class="uptime-badge good">98.1%</span></td>
+                            <td><span class="status-badge charging">Đang sạc</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Port 4</strong></td>
+                            <td>287</td>
+                            <td>10.2M VNĐ</td>
+                            <td>1,916 kWh</td>
+                            <td><span class="uptime-badge warning">95.5%</span></td>
+                            <td><span class="status-badge idle">Chờ</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Port 5</strong></td>
+                            <td>5</td>
+                            <td>0.8M VNĐ</td>
+                            <td>1,000 kWh</td>
+                            <td><span class="uptime-badge poor">78.3%</span></td>
+                            <td><span class="status-badge error">Lỗi</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="JS/ReportAndAnalysis.js"></script>
+</body>
+</html>

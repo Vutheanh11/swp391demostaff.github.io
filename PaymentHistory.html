@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment History - EV Charge Hub</title>
-    <script src="JS/theme-loader.js"></script>
-    <link rel="stylesheet" href="CSS/staffPage.css">
-    <link rel="stylesheet" href="CSS/PaymentHistory.css">
+    <script src="../JS/theme-loader.js"></script>
+    <link rel="stylesheet" href="../CSS/staffPage.css">
+    <link rel="stylesheet" href="../CSS/PaymentHistory.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -45,15 +45,40 @@
                 </a>
             </li>
             <li class="sidebar-menu-item">
-                <a href="#" class="sidebar-menu-link" data-section="charging">
+                <a href="ChargeHistory.html" class="sidebar-menu-link" data-section="charging">
                     <i class="fas fa-bolt"></i>
                     <span>Charging History</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="ReportAndAnalysis.html" class="sidebar-menu-link" data-section="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports & Analytics</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="maintenance">
+                    <i class="fas fa-tools"></i>
+                    <span>Station Maintenance</span>
                 </a>
             </li>
             <li class="sidebar-menu-item">
                 <a href="#" class="sidebar-menu-link" data-section="error">
                     <i class="fas fa-exclamation-triangle"></i>
                     <span>Error Report</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span>
+                    <span class="notification-badge">3</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="help">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help & Support</span>
                 </a>
             </li>
             <li class="sidebar-menu-item">
@@ -229,7 +254,8 @@
                         </tr>
                     </thead>
                     <tbody id="paymentTableBody">
-                        </tbody>
+                        <!-- Data populated by JS -->
+                    </tbody>
                 </table>
             </div>
             <div class="pagination" id="pagination">
@@ -255,10 +281,11 @@
                 </button>
             </div>
             <div class="payment-detail" id="paymentDetail">
-                </div>
+                <!-- Detail content populated by JS -->
+            </div>
         </div>
     </div>
 
-    <script src="JS/PaymentHistory.js"></script>
+    <script src="../JS/PaymentHistory.js"></script>
 </body>
 </html>

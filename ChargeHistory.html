@@ -1,1 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch sử Sạc - EV Charge Hub</title>
+    <script src="../JS/theme-loader.js"></script>
+    <link rel="stylesheet" href="../CSS/staffPage.css">
+    <link rel="stylesheet" href="../CSS/ChargeHistory.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-charging-station"></i>
+                <span>EV Hub</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="sidebar-user-info">
+                <h3>Nguyễn Văn An</h3>
+                <p>Nhân viên vận hành</p>
+            </div>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li class="sidebar-menu-item">
+                <a href="StaffPage.html" class="sidebar-menu-link" data-section="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="PaymentHistory.html" class="sidebar-menu-link" data-section="payment">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payment History</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="ChargeHistory.html" class="sidebar-menu-link active" data-section="charging">
+                    <i class="fas fa-bolt"></i>
+                    <span>Charging History</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="ReportAndAnalysis.html" class="sidebar-menu-link" data-section="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports & Analytics</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="maintenance">
+                    <i class="fas fa-tools"></i>
+                    <span>Station Maintenance</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Error Report</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span>
+                    <span class="notification-badge">3</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="#" class="sidebar-menu-link" data-section="help">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help & Support</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="SettingPage.html" class="sidebar-menu-link" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="sidebar-divider"></div>
+        
+        <div class="sidebar-logout">
+            <button class="sidebar-logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </aside>
+    
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <header class="header">
+        <div class="header-content">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <i class="fas fa-charging-station"></i>
+                <span>EV Charge Hub</span>
+            </div>
+            <div class="station-info">
+                <div class="station-name" id="stationName">Trạm sạc Vincom Center</div>
+                <div class="station-location" id="stationLocation">72 Lê Thánh Tôn, Q1, TP.HCM</div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">
+                    <i class="fas fa-user-circle"></i>
+                    <div class="staff-info-dropdown" id="staffInfoDropdown">
+                        <div class="staff-info-header">
+                            <div class="staff-avatar-large">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="staff-name-role">
+                                <h3>Nguyễn Văn An</h3>
+                                <p>Nhân viên vận hành</p>
+                            </div>
+                        </div>
+                        <div class="staff-info-details">
+                            <div class="staff-detail-row">
+                                <i class="fas fa-id-badge"></i>
+                                <span>Mã NV: NV001</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-envelope"></i>
+                                <span>nguyenvanan@evchargehub.com</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-phone"></i>
+                                <span>0901234567</span>
+                            </div>
+                            <div class="staff-detail-row">
+                                <i class="fas fa-clock"></i>
+                                <span>Ca sáng (07:00 - 15:00)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="history-section">
+            <div class="section-header">
+                <h2>Lịch sử Giao dịch Sạc</h2>
+            </div>
+            
+            <div class="history-controls">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" placeholder="Tìm theo ID, tên khách hàng...">
+                </div>
+                <input type="date" class="filter-input">
+                <select class="filter-select">
+                    <option value="all">Tất cả trạng thái</option>
+                    <option value="completed">Hoàn thành</option>
+                    <option value="cancelled">Đã hủy</option>
+                    <option value="error">Gặp lỗi</option>
+                </select>
+                <button class="filter-btn">
+                    <i class="fas fa-filter"></i>
+                    <span>Lọc</span>
+                </button>
+            </div>
+
+            <div class="history-table-container">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>ID Giao dịch</th>
+                            <th>Cổng</th>
+                            <th>Khách hàng</th>
+                            <th>Bắt đầu</th>
+                            <th>Kết thúc</th>
+                            <th>Năng lượng (kWh)</th>
+                            <th>Chi phí (VND)</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody">
+                        <!-- Data populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="pagination">
+                <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                <span class="pagination-info">Trang 1 / 10</span>
+                <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/ChargeHistory.js"></script>
+
+</body>
+</html>
